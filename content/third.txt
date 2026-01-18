@@ -1,0 +1,1 @@
+This is the third file created using writeFileSyncThis is the third file created using writeFileSyncThis is the third file created using writeFileSyncThis is the third file created using writeFileSync
