@@ -1,0 +1,24 @@
+{
+  "name": "node.js-my_learning-maksym-yaremko",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/Jonhson031/node-js-My-Learning#readme",
+  "bugs": {
+    "url": "https://github.com/Jonhson031/node-js-My-Learning/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jonhson031/node-js-My-Learning.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}

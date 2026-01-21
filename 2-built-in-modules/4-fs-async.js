@@ -25,11 +25,11 @@
 // })
 
 // ? Using ES modules and async/await to avoid callback hell
-// const fs = require('fs/promises'); 
+const { readFile, writeFile, unlink, access } = require('fs/promises');
 
 // Note: To use ES modules in Node.js, ensure "type": "module" is set in package.json
 
-import { readFile, writeFile, unlink, access } from 'fs/promises'; // ES (modern JS) modules
+// import { readFile, writeFile, unlink, access } from 'fs/promises'; // ES (modern JS) modules
 
 // Best practice is to use async/await
 const combineFiles = async function () {
