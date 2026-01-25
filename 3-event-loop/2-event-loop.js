@@ -25,3 +25,12 @@ setTimeout(() => console.log('4. Timeout'), 0);
 setImmediate(() => console.log('5. Immediate'));
 
 console.log('6. End');
+
+// Example 2: 
+// Inside I/O node: poll > check(immediate) > timers
+const fs = require('fs');
+
+fs.readFile(__filename, () => {
+  setTimeout(() => console.log('timeout'), 0); // timer would run first without I/O
+  setImmediate(() => console.log('immediate')); // first prints immediatre
+});

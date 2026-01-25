@@ -29,3 +29,12 @@ server.listen(PORT, 'localhost', () => {
     console.log(`Server running at http://localhost:${PORT}/`);
 })
 
+
+// Creating server using Event Emitter API
+const server2 = http.createServer();
+
+// Emits request event
+server2.on('request', (req, res) => {
+    res.end('Welcome!');
+})
+server2.listen(5000)
