@@ -8,7 +8,7 @@
 const {createReadStream, createWriteStream} = require('fs');
 
 // ? Readable stream
-// It's a source of data, it gives data to your program chuck by chuch (Like a faucet pouring the data);
+// It's a source of data, it gives data to your program chunk by chunk (Like a faucet pouring the data);
 // 📌 Readable = produces data
 const bigFile = createReadStream('./content/big.txt');
 
@@ -17,13 +17,13 @@ bigFile.on('data', (data) =>{
     console.log(data)
 })
 
-// Streams also listenign to the errors
+// Streams also listening to the errors
 bigFile.on('eror', (err) => {console.log(err)});
 
 
 
 // ? Writeable stream
-// It's a destination for data, it receives data chuck by chuck (Like a bucket for data).
+// It's a destination for data, it receives data chunk by chunk (Like a bucket for data).
 // 📌 Writable = consumes data
 const writable = createWriteStream('./content/output.txt');
 // writable.write('Hello...');
