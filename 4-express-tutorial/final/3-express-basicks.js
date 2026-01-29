@@ -9,6 +9,9 @@
 const express = require('express');
 const app = express();
 
+// ? Route
+// Route is a section of code that defines how the server responds to specific client requests based on the URL path and HTTP method
+
 // Respond to GET request on the root route
 app.get('/', (req, res) => {
   res.send('Home Page');
