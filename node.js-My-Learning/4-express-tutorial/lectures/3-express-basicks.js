@@ -29,7 +29,7 @@ app.use((req, res) => {
 
 
 // app.get - Handle GET requests
-// app.post - Handle GET requests
+// app.post - Handle POST requests
 // app.put
 // app.delete
 // app.all - Handle ALL http requests

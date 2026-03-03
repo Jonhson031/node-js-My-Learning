@@ -5,7 +5,7 @@
 // npm i <packageName> - install packange inside your project
 
 // Global dependency 
-// npm install -g <packageName> - iinstall package globally
+// npm install <packageName> -g - install package globally
 // ⚠️ Avoid global installs for projects.
 
 // package.json - manifest file (stores important info about project/package)'
@@ -23,3 +23,5 @@
 
 
 // npm uninstall <packageName> - to uninstall a package
+// npm outdated - check for outdated packages
+// npm update <packageName> - to update a package
