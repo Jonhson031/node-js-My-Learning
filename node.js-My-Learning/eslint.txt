@@ -1,0 +1,44 @@
+Step 1 — Install ESLint
+npm install eslint --save-dev
+
+Step 2 — Initialize ESLint
+npx eslint --init
+```
+
+Step 3 — Your .eslintrc.json Config
+{
+  "env": {
+    "node": true,
+    "es2021": true
+  },
+  "extends": "eslint:recommended",
+  "rules": {
+    "no-unused-vars": "warn",
+    "no-console": "off",
+    "eqeqeq": "error",
+    "semi": ["error", "always"],
+    "prefer-const": "warn"
+  }
+}
+
+
+ESLint + Prettier Setup
+1. npm install --save-dev eslint prettier eslint-config-prettier eslint-plugin-prettier
+
+.eslintrc.json:
+{
+  "env": {
+    "node": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "no-unused-vars": "warn",
+    "no-console": "off",
+    "eqeqeq": "error",
+    "prefer-const": "warn"
+  }
+}

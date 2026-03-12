@@ -4,6 +4,28 @@ const path = require('path');
 // ? Routing in Node.js determines how an application responds to a client request for a specific endpoint
 const tours = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'dev-data', 'data', 'tours-simple.json')));
 
+const checkId = (req, res, next, value) => {
+    const id = +value;
+
+    const tour = tours.find(tour => tour.id === id);
+    if (!tour) return res.status(404).json({
+        status: 'fail',
+        message: 'Invalid ID'
+    })
+
+    next();
+}
+
+const checkBody = (req, res, next) => {
+    if (!req.body.name || !req.body.price) {
+        return res.status(400).json({
+            status: 'fail',
+            message: 'Missing name or price'
+        })
+    }
+
+    next();
+}
 
 const getAllTours = (req, res) => {
     res.status(200).json({
@@ -17,14 +39,14 @@ const getAllTours = (req, res) => {
 
 // ? Responding to URL parameters:
 const getTour = (req, res) => {
-    // req.params returns string, so we need convert it into number
-    const id = +req.params.id;
+    // // req.params returns string, so we need convert it into number
+    // const id = +req.params.id;
 
-    const tour = tours.find(tour => tour.id === id);
-    if (!tour) return res.status(404).json({
-        status: 'fail',
-        message: 'Invalid ID'
-    })
+    // const tour = tours.find(tour => tour.id === id);
+    // if (!tour) return res.status(404).json({
+    //     status: 'fail',
+    //     message: 'Invalid ID'
+    // })
 
     res.status(200).json({
         status: 'success',
@@ -61,11 +83,6 @@ const createTour = (req, res) => {
 
 // ? Handling PATCH requests
 const updateTour = (req, res) => {
-    if (+req.params.id > tours.length) return res.status(404).json({
-        status: 'fail',
-        message: 'Invalid ID'
-    })
-
     res.status(200).send({
         status: 'success',
         data: 'Updated tour here.'
@@ -74,12 +91,6 @@ const updateTour = (req, res) => {
 
 // ? Handling DELETE requsts
 const deleteTour = (req, res) => {
-
-    if (+req.params.id > tours.length) return res.status(404).json({
-        status: 'fail',
-        message: 'Invalid ID'
-    })
-
     // Delete usually have 204 status respons
     res.status(204).send({
         status: 'success',
@@ -87,4 +98,4 @@ const deleteTour = (req, res) => {
     })
 }
 
-module.exports = {getAllTours, getTour, createTour, updateTour, deleteTour};
+module.exports = { getAllTours, getTour, createTour, updateTour, deleteTour, checkId, checkBody };
