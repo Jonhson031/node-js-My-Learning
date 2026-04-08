@@ -1,5 +1,8 @@
 const express = require('express');
 const morgan = require('morgan');
+const AppError = require('./utils/appError');
+const globalErrorHandler = require('./controllers/errorController');
+
 const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
 
@@ -26,5 +29,15 @@ app.set('query parser', 'extended');
 // Routes
 app.use('/api/v1/tours', tourRouter)
 app.use('/api/v1/users', userRouter);
+
+// ? Handling Unhandled Route
+app.all('/{*any}', (req, res, next) => {
+    // * Skips all the others middlewares in the stack and goes straight to error middleware
+    next(new AppError(`Can't find ${req.originalUrl} on this server`, 404));
+})
+
+// ? Error Handling Middleware
+// * If there's four parameters inside a function, then Express identifies it as error handling middleware
+app.use(globalErrorHandler);
 
 module.exports = app;

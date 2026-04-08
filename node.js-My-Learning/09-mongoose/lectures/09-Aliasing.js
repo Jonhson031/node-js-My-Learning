@@ -24,7 +24,7 @@ const aliasTopTours = (req, res, next) => {
 router.route('/top-5-cheap').get(aliasTopTours, getAllTours)
 
 // * Step 3:
-// Use in it in your normal controller:
+// Use it in your normal controller:
 
 const getAllTours = async (req, res) => {
     try {

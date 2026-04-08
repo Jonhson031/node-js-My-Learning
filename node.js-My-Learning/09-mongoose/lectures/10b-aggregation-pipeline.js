@@ -33,7 +33,7 @@ const getMonthlyPlan = async (req, res) => {
             },
             {
                 $project: { // * $project controls what fields appear in your output — you can show, hide, or rename fields.
-                    _id: 0 // hides id field
+                    _id: 0 // hide id field
                 }
             },
             {
