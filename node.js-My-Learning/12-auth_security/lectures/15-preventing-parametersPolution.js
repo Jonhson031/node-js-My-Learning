@@ -9,4 +9,18 @@
 
 import hpp from 'hpp';
 
-app.use(hpp());
+// app.use(hpp());
+
+app.use(
+  hpp({
+    // whitelist: allow duplicate query parameters for these fields
+    whitelist: [
+      'duration',
+      'ratingsAvg',
+      'ratingsQuantity',
+      'maxGroupSize',
+      'difficulty',
+      'price',
+    ],
+  }),
+);
