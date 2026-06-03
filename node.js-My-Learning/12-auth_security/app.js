@@ -33,7 +33,18 @@ app.use('/api', limiter);
 app.use(express.json({ limit: '10kb' })); // built in middleware
 
 // * Preventing Parameter pollution
-app.use(hpp());
+app.use(
+  hpp({
+    whitelist: [
+      'duration',
+      'ratingsAvg',
+      'ratingsQuantity',
+      'maxGroupSize',
+      'difficulty',
+      'price',
+    ],
+  }),
+);
 
 // * Serve static files from 'public' folder
 app.use(express.static('public'));
