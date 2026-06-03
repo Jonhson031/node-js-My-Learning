@@ -51,7 +51,6 @@ const getAllTours = async (req, res) => {
         } else {
             query = query.sort('-_id');
         }
-
         // 3) Field Limiting
         if (controlQuery.fields) {
             query = query.select(controlQuery.fields.split(',').join(' '));

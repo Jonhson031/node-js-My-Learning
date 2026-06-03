@@ -18,10 +18,11 @@ process.on("unhandledRejection", (err) => {
 });
 
 
-// ? unhandledRejection
+// ? uncaughtException
 // * It's a process-level event that fires when sync error is NOT caught anywhere in the code
 console.log(x) // x is undefined
 
+// ! Should be declared before any other code to catch all unhandled exceptions
 // * Handling uncaughtException
 process.on('uncaughtException', (err) => {
     console.error("💥 UNHANDLED EXCEPTION:");
